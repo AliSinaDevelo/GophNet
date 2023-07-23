@@ -13,6 +13,7 @@ func main() {
 	// create the server
 	server.SetupRoutes()
 
+	http.Handle("/", utils.LoggingMiddleware(http.DefaultServerMux))
 	
 	// run the server
 	addr := fmt.Sprintf(":%d", port)
