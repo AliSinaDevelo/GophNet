@@ -4,12 +4,13 @@ import (
 	"fmt"
 	"net/http"
 	"time"
+	"GophNet/server"
 )
 
 func main() {
 	port := 8080
 	// create the server
-	http.HandleFunc("/", helloHandler)
+	server.SetupRoutes()
 
 	// run the server
 	addr := fmt.Sprintf(":%d", port)
@@ -20,7 +21,3 @@ func main() {
 	}
 }
 
-// helloHandler handles requests to the root URL
-func helloHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Howdy, GophNet!")
-}
